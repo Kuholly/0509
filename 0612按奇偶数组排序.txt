@@ -1,0 +1,29 @@
+class Solution {
+    public int[] sortArrayByParityII(int[] A) {
+        int[] array1 = new int[A.length];
+        int[] array2 = new int[A.length / 2];
+        int[] array3 = new int[A.length / 2];
+        int j = 0;
+        int k = 0;
+        int l = 0;
+        for(int i=0;i<A.length;i++){
+            if(A[i]%2==0){
+                array2[k++] = A[i];
+            }else{
+                array3[l++] = A[i];
+            }
+        }
+        for(int i = 0;i < array1.length;i+=2){
+            array1[i] = array2[j];
+            j++;
+        }
+        j = 0;
+        for(int i = 1;i < array1.length;i+=2){
+            array1[i] = array3[j];
+            j++;
+        }
+        return array1;
+    }
+}
+
+
