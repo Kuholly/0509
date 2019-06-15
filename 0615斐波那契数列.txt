@@ -1,0 +1,17 @@
+class Solution {
+    public int fib(int N) {
+       int sum=0;
+        int arr1 = 0;
+        int arr2 = 1;
+        int count = 2;
+        if (N <= 1){
+            return N;
+        }while(count <= N){
+            sum = arr1 + arr2;
+            arr1 = arr2;
+            arr2 = sum;
+            count++;
+        }
+        return sum;
+    }
+}      
