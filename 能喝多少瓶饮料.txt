@@ -1,0 +1,33 @@
+
+public class Test1 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a=0;
+        while (scanner.hasNext()){
+            a=scanner.nextInt();
+            System.out.println(bottle(a));
+        }
+        scanner.close();
+    }
+    private static int bottle(int sum2) {
+        int num=0,num1=0,bnum=0,bnum1=0;
+        num=sum2;
+
+        bnum1=num/3;
+        num=num%3;
+        bnum=bnum1+bnum;
+        num1=num+bnum1;
+
+        while (num1>=3){
+            num=num1%3;
+            bnum1=num1/3;
+            bnum=bnum1+bnum;
+            num1=num+bnum1;
+        }
+        if (num1==2){
+            bnum++;
+        }
+        return bnum;
+    }
+
+}
