@@ -1,0 +1,31 @@
+public class Parenthesis {
+    public boolean chkParenthesis(String A, int n) {
+        // write code here
+        Stack<String> stack = new Stack<>();
+        char [] arr = A.toCharArray();
+        for (int i=0;i<arr.length;i++){
+            if (arr[i]=='(' ){
+                stack.push(String.valueOf(arr[i]));
+            }
+            if (arr[i]==')'){
+                if (stack.isEmpty()){
+                    return false;
+                }else {
+                    stack.pop();
+                }
+
+            }
+        }
+        if (stack.isEmpty()){
+            return true;
+        }
+
+        return false;
+    }
+
+    public static void main(String[] args) {
+        Parenthesis parenthesis = new Parenthesis();
+        Boolean result=parenthesis.chkParenthesis("(()))",5);
+        System.out.println(result);
+    }
+}
