@@ -1,0 +1,35 @@
+
+              
+public class DelectChar {
+        public static String Delect(String str, String str2){
+            StringBuffer str1=new StringBuffer(str);
+        for (int i=0;i<str1.length();i++){
+            for (int j=0;j<str2.length();j++){
+                if (str1.charAt(i)==str2.charAt(j)){
+                    str1.replace(i,i+1,String.valueOf(str2.charAt(0)));
+                }
+            }
+
+        }
+            int k=0;
+            while(k<str1.length()){
+                if(str1.charAt(k)==str2.charAt(0)){
+                    str1.deleteCharAt(k);
+                }else{
+                    k++;
+                }
+            }
+        return str1.toString();
+    }
+    public static void main(String[] args) {
+            Scanner scanner=new Scanner(System.in);
+            while(scanner.hasNext()){
+                String A=scanner.nextLine();
+                String B=scanner.nextLine();
+                if(A!=null||B!=null){
+                    System.out.println(Delect(A,B));
+                }
+            }
+    }
+
+}

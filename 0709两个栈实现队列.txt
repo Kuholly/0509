@@ -1,0 +1,56 @@
+import java.util.Stack;
+
+public class StackMyQueue {
+    private Stack myStackImp11;
+    private Stack myStackImp12;
+    private int usedSize = 0;
+
+    public StackMyQueue() {
+        this.myStackImp11 = new Stack();
+        this.myStackImp12 = new Stack();
+    }
+
+    public void push(int x) {
+        myStackImp11.push(x);
+        this.usedSize++;
+    }
+
+    // 从队列首部移除元素
+    public int pop() {
+        int data = 0;
+        if (myStackImp12.empty()) {
+            while (!myStackImp11.empty()) {
+                myStackImp12.push(myStackImp11.pop());
+            }
+        }
+        if (!myStackImp12.empty()) {
+            data = (int) myStackImp12.pop();
+        } else {
+            return -1;
+        }
+        this.usedSize--;
+        return data;
+    }
+
+    //返回队列首部的元素
+    public int peek() {
+        int data = 0;
+        if (myStackImp12.empty()) {
+            while (!myStackImp11.empty()) {
+                myStackImp12.push(myStackImp11.pop());
+            }
+        }
+        if (!myStackImp12.empty()) {
+            data = (int) myStackImp12.peek();
+        } else {
+            return -1;
+        }
+        return data;
+    }
+
+    //判断对列是否为空
+    public boolean empty() {
+        return this.usedSize == 0;
+
+    }
+}
