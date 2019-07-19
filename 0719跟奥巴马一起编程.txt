@@ -1,0 +1,38 @@
+
+
+ import java.util.Scanner;
+
+public class Obama {
+    public  void ObamaNum(int num,String str){
+        int a =0;
+        if (num%2==0){
+            a = num/2;
+        }else {
+            a = num/2+1;
+        }
+        for (int i=0;i<num;i++){
+            System.out.print(str);
+        }
+        System.out.println();
+        for (int j=0;j<a-2;j++){
+            System.out.print(str);
+            for (int k=0; k<num-2;k++){
+                System.out.print(" ");
+            }
+            System.out.println(str);
+        }
+        for (int i=0;i<num;i++){
+            System.out.print(str);
+        }
+
+
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        String str = scanner.next();
+        Obama obama = new Obama();
+        obama.ObamaNum(num,str);
+    }
+
+}
