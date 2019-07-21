@@ -1,0 +1,35 @@
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+//1、一个为空，一个不为空。false
+//2、都为空。 
+//3、值 && 左数是否对称 右数是否对称
+class Solution {
+    public boolean isSymmetricChild(TreeNode leftTree,TreeNode rightTree){
+        if(leftTree == null && rightTree != null){
+            return false;
+        }
+        if(leftTree != null && rightTree == null){
+            return false;
+        }
+        if(leftTree == null && rightTree == null){
+            return true;
+        }
+        
+        return leftTree.val == rightTree.val && isSymmetricChild(leftTree.left,rightTree.right) && isSymmetricChild(leftTree.right,rightTree.left);
+    }
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+        return isSymmetricChild(root.left,root.right);
+    }
+}
