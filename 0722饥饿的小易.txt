@@ -1,0 +1,36 @@
+
+import java.util.Scanner;
+
+
+
+public class Hungry {
+public static int StepNum (int num){
+        int result = 0;
+        int count =0;
+        int a = 1000000007;
+        if (num % a == 0){
+            return 0;
+        }
+        while (num != 0 && count <=300000){
+                num = (num *  2 + 1)%a;
+                count++;
+        }
+
+        result = (count+2)/3;
+
+        return result>100000 ? -1:result;
+    }
+
+    public static void main(String[] args) {
+ Hungry hungry = new Hungry();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            int num = scanner.nextInt();
+            System.out.println(hungry.StepNum(num));
+        }
+
+       
+
+    }
+
+}
