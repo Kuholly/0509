@@ -1,0 +1,46 @@
+
+import java.util.Scanner;
+public class Main{
+    public static int result(int a,int b,int c){
+       int num =0;
+        int tmp =0;
+        if (a ==b && b==c && c==1){
+            num = a+b+c;
+        }else if(a == 1){
+            if(b>c){
+                tmp = b;
+                b = c;
+                c = tmp;
+            }
+            num = (a+b)*c;
+        }else if(b == 1){
+            if(a>c){
+                tmp = a;
+                a = c;
+                c = tmp;
+            }
+            num = (a+b)*c;
+        } else if(c == 1){
+            if(a>b){
+                tmp = b;
+                b = a;
+                a = tmp;
+            }
+            num = (c+a)*b;
+        }else {
+            num = a*b*c;
+        }
+
+        return num;
+    }
+    public static void main(String[] args){
+        Main main = new Main();
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int c = sc.nextInt();
+            System.out.println( main.result(a,b,c));
+        }
+    }
+}
