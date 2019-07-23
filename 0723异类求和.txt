@@ -1,0 +1,29 @@
+
+
+//import jdk.nashorn.internal.parser.Scanner;
+import java.util.Scanner;
+
+public class UnusualAdd {
+    public int addAB(int A, int B) {
+       int sum = 0;
+       int carry = 0;
+       if (B == 0){
+           return A;
+       }
+       sum = A^B;
+       carry = (A&B) << 1;
+       return addAB(sum,carry);
+    }
+
+    public static void main(String[] args) {
+        UnusualAdd unusualAdd = new UnusualAdd();
+        Scanner sc = new Scanner(System.in);
+       while (sc.hasNext()){
+           int A = sc.nextInt();
+           int B = sc.nextInt();
+           System.out.println(unusualAdd.addAB(A,B));
+
+       }
+
+    }
+}
