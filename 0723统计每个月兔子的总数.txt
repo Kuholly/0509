@@ -1,0 +1,30 @@
+
+
+
+import java.util.*;
+public class Main{
+    public static int getTotal(int month){
+        if(month==1 || month == 2){
+            return 1;
+        }
+//递归实现
+        return getTotal(month-1)+getTotal(month-2);
+//非递归实现
+        int a=1,b=1,c=1;
+        for(int i =3;i<=month;i++){
+            c=a+b;
+            a= b;
+            b= c;
+        }
+        return c;
+    }
+    public static void main(String[] args){
+        Main main = new Main();
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            System.out.println(getTotal(n));
+        }
+
+    }
+}
