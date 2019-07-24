@@ -1,0 +1,25 @@
+
+import java.util.Scanner;
+
+
+public class NumOfOne {
+    public static int NumberOf1(int n){
+        String str = Integer.toBinaryString(n);
+        int count =0;
+        for (int i=0;i<str.length();i++){
+            if (str.charAt(i) == '1'){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        NumOfOne numOfOne = new NumOfOne();
+        while (scanner.hasNext()){
+            int n = scanner.nextInt();
+            System.out.println(numOfOne.NumberOf1(n));
+        }
+    }
+}
