@@ -1,0 +1,52 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+        //从后续遍历的数组的最后一个元素开始找。  先构建右树 再构建左树。
+     public int preIndex = 0;
+    public TreeNode buildTreeChild(int[] preorder, int[] inorder,int inbegin,int inend) {
+        
+        if(inbegin > inend) {
+            return null;
+        }
+        
+        TreeNode root = new TreeNode(preorder[preIndex]);
+        
+        //找preorder[preIndex] 在中序遍历的数组当中的下标 记为rootIndex;
+        int rootIndex = findIndexOfInorder(inorder,preorder[preIndex],inbegin,inend);
+       
+        preIndex--;
+        
+         root.right = buildTreeChild(preorder,inorder,rootIndex+1,inend);
+        
+        root.left = buildTreeChild(preorder,inorder,inbegin,rootIndex-1);
+       
+       
+        return root;
+        
+    }
+    //找到返回下标  找不到返回-1
+    public int findIndexOfInorder(int[] inorder,int val,int inbegin,int inend) {
+        //找
+        for(int i = inbegin;i <= inend;i++) {
+            if(inorder[i] == val) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    public TreeNode buildTree(int[] inorder,int[] preorder) {
+        if(preorder==null || inorder==null){
+            return null;
+        }
+        preIndex = preorder.length-1;
+        return buildTreeChild(preorder,inorder,0,inorder.length-1);
+    }
+}
