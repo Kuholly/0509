@@ -1,0 +1,16 @@
+
+
+public class Substr {
+    public boolean[] chkSubStr(String[] p, int n, String s) {
+        boolean[] result =new boolean[p.length];
+        int i =0;
+        for ( i = 0;i<n;i++){
+            if (s.contains(p[i])) {
+                result[i] = true;
+            } else {
+                result[i] = false;
+            }
+        }
+        return result;
+    }
+}
