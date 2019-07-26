@@ -1,0 +1,21 @@
+import java.util.*;
+public class Solution {
+    public int Higth(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        TreeNode leftNode = root.left;
+        TreeNode rightNode = root.right;
+        return Math.max(Higth(leftNode)+1,Higth(rightNode)+1);
+    }
+    public boolean IsBalanced_Solution(TreeNode root) {
+        if(root == null){
+            return true;
+        }
+        int leftH = Higth(root.left);
+        int rightH = Higth(root.right);
+        int sum = leftH-rightH;
+        return Math.abs(sum)<2 && IsBalanced_Solution(root.left)
+            && IsBalanced_Solution(root.right);
+    }
+}
