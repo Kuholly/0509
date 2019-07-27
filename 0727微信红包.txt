@@ -1,0 +1,25 @@
+
+
+import java.util.*;
+
+public class Gift {
+    public int getValue(int[] gifts, int n) {
+        // write code here
+        int count = 0;
+        int sum = n/2;
+        for(int i =0;i<n;i++){
+            for(int j = 0;j<n;j++){
+                if(gifts[i] == gifts[j]){
+                    count++;
+                }
+            }
+            if(count > sum){
+                int num = gifts[i];
+                return num;
+            }else{
+                count = 0;
+            }
+        }
+        return 0;
+    }
+}
