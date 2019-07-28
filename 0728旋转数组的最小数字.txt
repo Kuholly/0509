@@ -1,0 +1,15 @@
+
+
+import java.util.ArrayList;
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        if(array.length == 0){
+            return 0;
+        }
+        int num = array[0];
+        for(int i =1;i<array.length;i++){
+            num = Math.min(num,array[i]);
+        }
+        return num;
+    }
+}
