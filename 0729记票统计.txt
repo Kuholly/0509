@@ -1,0 +1,38 @@
+import java.util.*;
+public class Main{
+    public  static void result(String n1 ,String[] st,String n2,String[] str){
+        int n = st.length;
+        int m = str.length;
+        int Invalid = 0;
+        int sum = 0;
+        for (int i = 0;i<n;i++){
+            int num = 0;
+            for (int j =0;j<m;j++){
+                if (st[i].equals(str[j]) ){
+                    num ++;
+                }
+            }
+            sum += num;
+            System.out.println(st[i] + " " +":" + " " + num);
+        }
+        if (sum < m){
+            Invalid = m - sum;
+            System.out.println("Invalid"+" " +":" +" " + Invalid);
+        }else {
+            System.out.println("Invalid"+" " +":" +" " + 0);
+        }
+    }
+    public static void main(String[] args){
+      Main main = new Main();
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()){
+            String str1 = sc.nextLine();    //人数
+            String str2 = sc.nextLine();    //人名
+            String str3 = sc.nextLine();    //投票人数
+            String str4 = sc.nextLine();    //投票的具体给谁
+            String[] arr1 = str2.split(" ");
+            String[] arr2 = str4.split(" ");
+            result(str1,arr1,str2,arr2);
+        }
+    }
+}
