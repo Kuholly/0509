@@ -1,0 +1,36 @@
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+
+public class ConstructPruductArrays {
+    public int[] multiply(int[] A) {
+        int[] B = new int[A.length];
+        for(int i =0;i<B.length;i++){
+            int num=1;
+            for (int j=0;j<A.length;j++){
+                if (i != j){
+                    num = num * A[j];
+                }
+            }
+            B[i] = num;
+        }
+        return B;
+    }
+    public static void main(String[] args) throws IOException {
+        ConstructPruductArrays constructPruductArrays = new ConstructPruductArrays();
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        String str = in.readLine();
+        String[] arr = str.split(" ");
+        int[] arr1 = new int[arr.length];
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = Integer.parseInt(arr[i]);
+        }
+        System.out.println(Arrays.toString(constructPruductArrays.multiply(arr1)));
+
+
+    }
+}
