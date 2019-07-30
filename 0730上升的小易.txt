@@ -1,0 +1,37 @@
+
+
+
+import java.util.Scanner;
+
+
+public class Main {
+    static int menth(int c,int b){
+        return c%b==0 ? b:menth(b,c%b);
+    }
+    public static int result(int n,int a,int[] arr){
+        for (int i =0;i<n;i++){
+            if (a>arr[i]){
+                a += arr[i];
+            }else {
+                int m = menth(a,arr[i]);
+                a += m;
+            }
+        }
+        return a;
+    }
+    public static void main(String[] args){
+        Main main = new Main();
+        Scanner in = new Scanner(System.in);
+        while (in.hasNext()){
+            int n = in.nextInt();
+            int c = in.nextInt();
+            int[] ar = new int[n];
+            for (int i = 0; i <n ; i++) {
+                ar[i] = in.nextInt();
+            }
+            System.out.println(main.result(n,c,ar));
+        }
+
+        }
+    }
+
