@@ -1,0 +1,33 @@
+
+
+
+import java.util.*;
+public class Main{
+    public static int  getSum(int x){
+        int sum = 0;
+        while(x/10 != 0){
+            sum += x%10;
+            x = x/10;
+        }
+        sum += x;
+        return sum;
+    }
+    public static void number(int n){
+        int num = n*n;
+        if(n > 10){
+            n = getSum(n);
+        }
+        if(num > 10){
+            num = getSum(num);
+        }
+        System.out.println(n + " " + num);
+    }
+    public static void main(String[] args){
+        Main main = new Main();
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            main.number(n);
+        }
+    }
+}
