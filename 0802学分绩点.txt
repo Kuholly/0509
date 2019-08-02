@@ -1,0 +1,65 @@
+
+
+
+
+import java.util.*;
+import java.text.DecimalFormat;
+
+public class Main{
+    public static void GPA(int n,int[] credit,int[] grade){
+        double result = 0;;
+        int sum = 0;
+        for(int i =0;i<n;i++){
+            sum += credit[i];
+        }
+        double[] arr = new double[n];
+        for(int i =0;i<n;i++){
+            int num = grade[i];
+            if(num < 60){
+                arr[i] = 0;
+            }else if(60 <= num && num <= 63){
+                arr[i] = 1.0;
+            }else if(64 <= num && num <= 67){
+                arr[i] = 1.5;
+            }else if(68 <= num && num <= 71){
+                arr[i] = 2.0;
+            }else if(72 <= num && num <= 74){
+                arr[i] = 2.3;
+            }else if(75 <= num && num <= 77){
+                arr[i] = 2.7;
+            }else if(78 <= num && num <= 81){
+                arr[i] = 3.0;
+            }else if(82 <= num && num <= 84){
+                arr[i] = 3.3;
+            }else if(85 <= num && num <= 89){
+                arr[i] = 3.7;
+            }else{
+                arr[i] = 4.0;
+            }
+        }
+        double s = 0;
+        for(int i = 0;i<n;i++){
+            s += credit[i]*arr[i];
+        }
+        result = s/sum;
+        DecimalFormat format = new DecimalFormat("#.00");
+        String nums7 = format.format(result);
+        System.out.println(nums7);
+    }
+    public static void main(String[] args){
+        Main main = new Main();
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            int[] credit = new int[n];
+            int[] grade = new int[n];
+            for(int i =0;i<n;i++){
+                credit[i] = sc.nextInt();
+            }
+            for(int i =0;i<n;i++){
+                grade[i] = sc.nextInt();
+            }
+            main.GPA(n,credit,grade);
+        }
+    }
+}
