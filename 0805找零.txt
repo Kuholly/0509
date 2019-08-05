@@ -1,0 +1,24 @@
+
+import java.util.*;
+
+public class Main{
+    public static int coin(int N){
+        int M = 1024-N;
+        int a = M/64;  //
+        int b = M%64;
+        int c = b/16;   //
+        int d = b%16;
+        int e = d/4;    //
+        int f = d%4;
+        int sum = a+c+e+f;
+        return sum;
+    }
+    public static void main(String[] args){
+        Main main = new Main();
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int N = sc.nextInt();
+            System.out.println(coin(N));
+        }
+    }
+}
