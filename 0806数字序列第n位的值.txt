@@ -1,0 +1,30 @@
+
+
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int n = sc.nextInt();
+            if(n == 1){
+                System.out.println(n);
+            }else if(n == 3){
+                System.out.println(n-1);
+            }else{
+           
+                int a = 1;
+            int sum = 0;
+            while(a >= 1){
+                sum += a;
+                if(sum > n){
+                    System.out.println(a);
+                    break;
+                }else{
+                    a++;
+                }
+            }
+            }
+            
+        }
+    }
+}
