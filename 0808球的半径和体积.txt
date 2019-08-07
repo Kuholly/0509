@@ -1,0 +1,32 @@
+
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class ThevolumeOfbool {
+    public static void bool(String str){
+       String[] st = str.split(" ");
+       int[] arr = new int[st.length];
+       for (int i =0;i<st.length;i++){
+           arr[i] = Integer.parseInt(st[i]);
+       }
+       int a = arr[3]-arr[0];
+       int b = arr[4]-arr[1];
+       int c = arr[5]-arr[2];
+       int n = a*a + b*b + c*c;
+       double d = Math.pow(n,0.5);
+       double d3 = Math.pow(d,3);
+        DecimalFormat df = new DecimalFormat("0.000");
+
+        double S = (4.0 * d3 * (Math.PI))/3;
+
+        System.out.println(df.format(d)+" "+df.format(S));
+
+    }
+    public static void main(String[] args) {
+        ThevolumeOfbool thevolumeOfbool = new ThevolumeOfbool();
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        bool(str);
+    }
+}
