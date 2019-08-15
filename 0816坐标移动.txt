@@ -1,0 +1,46 @@
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void result(String str){
+        String[] arr = str.split(";");
+        int x =0;
+        int y =0;
+        for (int i =0;i<arr.length;i++){
+            String s = arr[i];
+            StringBuffer sb = new StringBuffer(s);
+            if ((s.length() == 3  && s.charAt(1)>='0'&&s.charAt(1)<='9'&&s.charAt(2)>='0'&&s.charAt(2)<='9')||(s.length() == 2 && s.charAt(1)>='0' && s.charAt(1) <= '9')){
+                if (sb.charAt(0) =='A'){
+                    sb = sb.deleteCharAt(0);
+                    int a = Integer.parseInt(sb.toString());
+                    x -= a;
+                }
+                if (sb.charAt(0) =='W'){
+                    sb = sb.deleteCharAt(0);
+                    int a = Integer.parseInt(sb.toString());
+                    y += a;
+                }
+                if (sb.charAt(0) =='D'){
+                    sb = sb.deleteCharAt(0);
+                    int a = Integer.parseInt(sb.toString());
+                    x += a;
+                }
+                if (sb.charAt(0) =='S'){
+                    sb = sb.deleteCharAt(0);
+                    int a = Integer.parseInt(sb.toString());
+                    y -= a;
+                }
+            }
+        }
+        System.out.println(x+","+y);
+    }
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            String str = scanner.nextLine();
+            result(str);
+        }
+    }
+}
