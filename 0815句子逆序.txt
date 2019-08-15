@@ -1,0 +1,21 @@
+
+
+import java.util.Scanner;
+
+
+public class Main {
+    public static void result(String str){
+        String[] arrs = str.split(" ");
+        for (int i = arrs.length-1;i>=0;i--){
+            System.out.print(arrs[i]+" ");
+        }
+    }
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            String str = scanner.nextLine();
+            result(str);
+        }
+    }
+}
