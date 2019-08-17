@@ -1,0 +1,43 @@
+
+
+import java.util.Scanner;
+
+public class Main {
+    boolean year(int Y){
+        return ((Y%4==0 && Y%100!=0) || (Y%400==0));//ÅĞ¶ÏÊÇ·ñÊÇÈòÄê
+    }
+
+     int oneday(int Y,int M,int D){
+        int sum =0;
+        int[] arr1 = {31,28,31,30,31,30,31,31,30,31,30,31};
+        int[] arr2 = {31,29,31,30,31,30,31,31,30,31,30,31};
+        boolean effect = year(Y);
+        if (M ==1){
+            return D;
+        }else {
+            if (effect){
+                for (int i = 0;i<M-1;i++){
+                    sum += arr2[i];
+                }
+                sum += D;
+            }else {
+                for (int i = 0;i<M-1;i++){
+                    sum += arr1[i];
+                }
+                sum += D;
+            }
+        }
+
+        return sum;
+    }
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            int Y = scanner.nextInt();
+            int M = scanner.nextInt();
+            int D = scanner.nextInt();
+            System.out.println(main.oneday(Y,M,D));
+        }
+    }
+}
