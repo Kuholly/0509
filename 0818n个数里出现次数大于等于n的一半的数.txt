@@ -1,0 +1,35 @@
+
+import java.util.Scanner;
+
+public class Main {
+         private static int maxscore(String str) {
+             int sum = 0;
+            String[] s = str.split(" ");
+            int[] arr = new int[s.length];
+            for (int i =0;i<s.length;i++){
+                arr[i] = Integer.parseInt(s[i]);
+            }
+            int len = arr.length/2;
+            for (int i = 0;i<arr.length;i++){
+                int count =0;
+                for (int j =0;j<arr.length;j++){
+                    if (arr[i] == arr[j]){
+                        count++;
+                    }
+                }
+                if (count>=len){
+                    sum = arr[i];
+                    break;
+                }
+            }
+            return sum;
+        }
+        public static void main(String[] args){
+            Main main = new Main();
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()) {
+                String str = sc.nextLine();
+                System.out.println(maxscore(str));
+            }
+        }
+}
