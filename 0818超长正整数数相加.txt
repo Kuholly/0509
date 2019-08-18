@@ -1,0 +1,9 @@
+Python 2.7
+while True:
+    try:
+        a = input()
+        b = input()
+        print a+b
+    except:
+        break
+
