@@ -1,0 +1,31 @@
+
+
+import java.util.Scanner;
+
+public class Main {
+    public void Candy(String str) {
+        String[] s = str.split(" ");
+        int[] arr = new int[s.length];
+        for (int i =0;i<arr.length;i++){
+            arr[i] = Integer.parseInt(s[i]);
+        }
+        int A =(arr[1]+arr[3])/2+arr[0];
+        int B =(arr[1]+arr[3])/2;
+        int C =arr[3]-((arr[1]+arr[3])/2);
+        if(A+B == arr[2]){
+            System.out.println(A+" "+B+" "+C);
+        }else{
+            System.out.println("No");
+        }
+    }
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            String str = scanner.nextLine();
+            main.Candy(str);
+        }
+    }
+}
+
+
