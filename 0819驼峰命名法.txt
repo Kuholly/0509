@@ -1,0 +1,27 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void result(String str){
+        StringBuffer sb = new StringBuffer();
+        String[] arr = str.split("_");
+        sb.append(arr[0]);
+        for (int i =1;i<arr.length;i++){
+            String s = arr[i];
+            StringBuffer sb1 = new StringBuffer(s);
+            char a = (char)(s.charAt(0)-32);
+            sb1.deleteCharAt(0);
+            sb.append(a);
+            sb.append(sb1);
+        }
+        System.out.println(sb.toString());
+    }
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()){
+            String str = scanner.nextLine();
+            result(str);
+        }
+    }
+}
