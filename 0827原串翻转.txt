@@ -1,0 +1,15 @@
+
+
+import java.util.*;
+
+public class Reverse {
+    public String reverseString(String iniString) {
+        // write code here
+        StringBuffer sb= new StringBuffer();
+        for(int i =iniString.length()-1;i>=0;i--){
+            sb.append(iniString.charAt(i));
+        }
+        return sb.toString();
+        
+    }
+}
