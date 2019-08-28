@@ -1,0 +1,25 @@
+
+import java.util.*;
+
+public class Main {
+    private static void numOfYue(int Num){
+        int sum = 0;
+        int temp = (int) Math.sqrt(Num);
+        for(int i=1;i<=temp;i++){
+            if(Num%i==0)sum+=2;
+        }
+        if(temp*temp==Num) sum-=1;
+        System.out.println(sum);
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        while(sc.hasNext()){
+            int N = sc.nextInt();
+            while(N !=0){
+                int num = sc.nextInt();
+                numOfYue(num);
+                N--;
+            }
+        }
+    }
+}
