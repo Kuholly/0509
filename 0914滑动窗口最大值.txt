@@ -1,0 +1,26 @@
+ 
+class Solution {
+    public  int maxNum(int[] arr){
+        if(arr.length<0){
+            return 0;
+        }
+        int tmp = arr[0];
+        for(int i = 0;i<arr.length;i++){
+            tmp = Math.max(tmp,arr[i]);
+        }
+        return tmp;
+    }
+    
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if(nums.length < 0 || k <= 0 || k > nums.length){
+            return nums;
+        }
+        int[] arr = new int[nums.length+1-k];
+        for (int i =0;i<arr.length;i++){
+            int[] cur = Arrays.copyOfRange(nums,i,i+k);
+            int tmp = maxNum(cur);
+            arr[i] = tmp;
+        }
+        return arr;    
+    }
+}
