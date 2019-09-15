@@ -1,0 +1,43 @@
+
+class Solution {
+    String Append(String str,int n){
+        StringBuffer sb = new StringBuffer();
+        for (int i =0;i<n;i++){
+            sb.append(0);
+        }
+        sb.append(str);
+        return sb.toString();
+
+    }
+    public int hammingDistance(int x, int y) {
+        String str1 = Integer.toBinaryString(x); //1110
+        String str2 = Integer.toBinaryString(y);//0100
+        int len1 = str1.length();
+        int len2 = str2.length();
+        int count = 0;
+        if (len1 == len2){
+            for (int i =0;i<len1;i++){
+                if (str1.charAt(i) != str2.charAt(i)){
+                    count++;
+                }
+            }
+        }else if (len1 > len2){
+            int n = len1-len2;
+            str2 = Append(str2,n);
+            for (int i =0;i<len1;i++){
+                if (str1.charAt(i) != str2.charAt(i)){
+                    count++;
+                }
+            }
+        }else {
+            int n = len2-len1;
+            str1 = Append(str1,n);
+            for (int i =0;i<len2;i++){
+                if (str1.charAt(i) != str2.charAt(i)){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
